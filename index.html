@@ -6,74 +6,109 @@
 	<meta name="description" content="C++ Type Explorer to explore complicated types from compiler messages">
 	<meta name="keywords" content="C++">
 	<meta name="author" content="Mirko Kunze">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>C++ Type Explorer</title>
+
 	<style>
 		body {
 			font-family: monospace;
 			font-size: x-large;
 		}
 
-		div{
+		div {
 			background-color: rgba(0, 100, 255, 0.12);
-			margin-left:2ch;
-			margin-right:1ch;
-			margin-top:4pt;
-			margin-bottom:4pt;
+			margin-left: 2ch;
+			margin-right: 1ch;
+			margin-top: 4pt;
+			margin-bottom: 4pt;
 		}
 
-		textarea{
-			margin-left:5%;
-			width:90%;
-			min-height:20vh;
+		textarea {
+			margin-left: 5%;
+			width: 90%;
 		}
 
-		b{
-			cursor:pointer
+		#input {
+			height: 20vh;
 		}
 
-		h2{
-			font-size:large;
-			margin-left:1ch;
+		#replace {
+			height: 10vh;
 		}
 
-		a{
-			font-size:medium;
-			margin-left:1ch;
+		b {
+			cursor: pointer;
+			color: #0000ff;
+		}
+
+		h1 {
+			font-size: xx-large;
+			text-align: center;
+		}
+
+		h2 {
+			font-size: large;
+			margin-left: 1ch;
+		}
+
+		a {
+			font-size: medium;
+			margin-left: 1ch;
+			color: #0000ff;
 		}
 	</style>
 </head>
 
 <body>
-	<h1 style="text-align:center">C++ Type Explorer</h1>
+	<h1>C++ Type Explorer</h1>
 	<h2>Paste your type here:</h2>
 	<textarea id="input"
-		oninput="process()">family_tree<frobnicate<Toast<frobnicate<Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > >(Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >)::<lambda(MyClass<T>, auto:27)> >, Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > >(Toast<frobnicate<Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > >(Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >)::<lambda(MyClass<T>, auto:27)> >, Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >)::<lambda(MyClass<T>, auto:27)>, Toast<frobnicate<Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > >(Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >)::<lambda(MyClass<T>, auto:27)> >, Toast<galactify<std::__cxx11::basic_string<char> >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > ></textarea>
+		oninput="process()">operand types are 'family_tree<frobnicate<Toast<frobnicate<Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > >(Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >)::<lambda(MyClass<T>, auto:27)> >, Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > >(Toast<frobnicate<Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > >(Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >)::<lambda(MyClass<T>, auto:27)> >, Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >)::<lambda(MyClass<T>, auto:27)>, Toast<frobnicate<Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > >(Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >, Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> >)::<lambda(MyClass<T>, auto:27)> >, Toast<galactify<std::_Rb_tree_iterator<std::pair<const int, int> > >(std::__cxx11::basic_string<char>)::<lambda(MyClass<T>, auto:24)> > >' and 'int'</textarea>
 	<br>
+
+	<h2>Define some replacements here:</h2>
+	<textarea id="replace" oninput="process()">std::__cxx11::basic_string<char> => string;
+std::_Rb_tree_iterator<std::pair<const int, int> > => map_iterator;</textarea>
+	<br>
+
 	<h2>Explore your type here:</h2>
 	<div id="output"></div>
+
 
 	<br><a href="https://github.com/mqnc/cpptypeexplorer">https://github.com/mqnc/cpptypeexplorer</a>
 
 	<script>
 		function process() {
 			let input = document.getElementById("input").value;
+			let replacements = document.getElementById("replace").value.split(";");
+			for (let r of replacements) {
+				try {
+					if (r.trim() === "") { continue }
+					[from, to] = r.split("=>")
+					input = input.replaceAll(from.trim(), to.trim())
+				}
+				catch (error) {
+					console.error(error);
+				}
+			}
 			let output = input
-				.replaceAll("<>", "&lt;&gt;")
+				.replaceAll(/\<([^\<\>]{0,16})\>/g, "&lt;$1&gt;")
 				.replaceAll("<", "\uE000")
 				.replaceAll(">", "\uE001")
-				.replaceAll("()", "\uE002")
-				.replaceAll("(", "\uE003")
-				.replaceAll(")", "\uE004")
+				.replaceAll(/\(([^\(\)]{0,16})\)/g, "&#40;$1&#41;")
+				.replaceAll("(", "\uE002")
+				.replaceAll(")", "\uE003")
 				.replaceAll("\uE000", `<span><b onclick="toggle(this)" style="display:inline">&lt;...&gt;</b><b onclick="toggle(this)" style="display:none">&lt;</b><span style="display:none"><br><div>`)
 				.replaceAll("\uE001", `</div></span><b onclick="toggle(this)" style="display:none">&gt;</b></span>`)
-				.replaceAll("\uE002", "()")
-				.replaceAll("\uE003", `<span><b onclick="toggle(this)" style="display:inline">(...)</b><b onclick="toggle(this)" style="display:none">(</b><span style="display:none"><br><div>`)
-				.replaceAll("\uE004", `</div></span><b onclick="toggle(this)" style="display:none">)</b></span>`)
+				.replaceAll("\uE002", `<span><b onclick="toggle(this)" style="display:inline">(...)</b><b onclick="toggle(this)" style="display:none">(</b><span style="display:none"><br><div>`)
+				.replaceAll("\uE003", `</div></span><b onclick="toggle(this)" style="display:none">)</b></span>`)
 				.replaceAll(",", ",</div><div>")
 			document.getElementById("output").innerHTML = output;
 		}
 
 		function toggle(e) {
-			for (c of e.parentElement.children) {
+			for (let c of e.parentElement.children) {
 				if (c.style.display == "none") {
 					c.style.display = "inline";
 				}
